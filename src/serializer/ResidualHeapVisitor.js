@@ -229,7 +229,7 @@ export class ResidualHeapVisitor {
       let binding = r.bindings[n];
       invariant(!binding.deletable);
       let value = (binding.initialized && binding.value) || realm.intrinsics.undefined;
-      visitedBinding = { global: false, value, modified: false };
+      visitedBinding = { global: false, value, modified: false, declarativeEnvironmentRecord: r };
       visitedBindings[n] = visitedBinding;
       this.visitValue(value);
     }
